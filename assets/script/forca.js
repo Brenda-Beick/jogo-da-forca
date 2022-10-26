@@ -1,6 +1,8 @@
 function iniciarJogo() {
     document.getElementById("div-desaparece").style.display = "none";
     escolherPalavraSecreta();
+    desenharCanvas()
+    desenhaLinhas()
 }
 
 let palavras = ["front", "back", "codar", "hardware", "software"];

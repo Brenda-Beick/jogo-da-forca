@@ -28,3 +28,12 @@ function desenhaLinhas() {
     tabuleiro.closePath();
 
 }
+
+function escolherLetraCorreta(index) {
+    tabuleiro.font = "bold 52px inter";
+    tabuleiro.lineCap = "round";
+    tabuleiro.fillStyle = "#0A3871";
+    tabuleiro.lineWidth = 6;
+    let largura = 600/palavraSecreta.length;
+    tabuleiro.fillText(palavraSecreta[index],505,620);
+}

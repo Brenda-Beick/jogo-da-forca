@@ -3,6 +3,7 @@ let tabuleiro = document.getElementById("forca").getContext("2d");
 let palavraSecreta = "";
 let letras = [];
 let erros = 8;
+let acertos = "";
 
 function iniciarJogo() {  
     //função para botão inciar
@@ -21,6 +22,7 @@ function iniciarJogo() {
                 for(let i = 0; i < palavraSecreta.length; i++) {
                     if(palavraSecreta[i] === letra) {
                         escreverLetraCorreta(i);
+                        verificarAcerto(i);
                     }
                 }
         }
@@ -79,5 +81,12 @@ function adicionarLetraIncorreta() {
     }
     if(erros == 0) {
         alert("Você perdeu!!!!");
+    }
+}
+
+function verificarAcerto(letra) {
+    letras.push(letra.toLowerCase());
+    if(letras.length == palavraSecreta.lenght) {
+        alert("Você ganhou!!!!!")
     }
 }

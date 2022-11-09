@@ -1,8 +1,24 @@
+.logo {
+    position: relative;
+    top: 120px;
+    left: 120px;
+}
+
+
+
 .btn-inicial {
 background: #cc33cc;
-padding: 30px 45px;
+padding: 50px 90px;
 border-radius: 15px;
 border: none;
-background-position: center;
+position: relative;
+top: 220px;
+left: 650px;
+}
 
+.criacao {
+  
+    text-align: center;
+    position: relative;
+    bottom: 100px;
 }

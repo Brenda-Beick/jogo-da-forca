@@ -97,7 +97,7 @@ function adicionarLetraIncorreta() {
 }
 
 function verificarAcerto(letra) {
-
+    console.log(acertos.length === palavraSecreta.length);
         if(acertos.length === palavraSecreta.length) {
             alert("Você ganhou!!!!!")
         }  

@@ -18,11 +18,18 @@ function iniciarJogo() {
     document.onkeydown = (e) => {
         let letra = e.key.toLowerCase();
 
+        if(letras.includes(letra) || acertos.includes(letra)) {
+            return
+        }
+
         if(verificarLetra(letra) && palavraSecreta.includes(letra)) {
                 for(let i = 0; i < palavraSecreta.length; i++) {
                     if(palavraSecreta[i] === letra) {
                         escreverLetraCorreta(i);
-                        verificarAcerto(i);
+
+                        setTimeout(function() {
+                            verificarAcerto(letra);
+                        }, 500)
                     }
                 }
         }
@@ -35,7 +42,7 @@ function iniciarJogo() {
 
 function verificarLetra (key) {
     let estado = false;
-    if(key >= 65 && letras.indexOff(key) || key >= 90 && letras.indexOff(key)) {
+    if(key >= 65 && letras.indexOf(key) || key >= 90 && letras.indexOf(key)) {
             letras.push(key);
             console.log(key);
             console.log(letras);
@@ -43,6 +50,11 @@ function verificarLetra (key) {
     }   
     else {
         estado = true;
+        if(palavraSecreta.includes(key)) {
+            acertos += key;
+        } else {
+            letras.push(key);
+        }
         letras.push(key);
         console.log(key);
         console.log(letras, "beatiful");
@@ -85,8 +97,8 @@ function adicionarLetraIncorreta() {
 }
 
 function verificarAcerto(letra) {
-    letras.push(letra.toLowerCase());
-    if(letras.length == palavraSecreta.lenght) {
-        alert("Você ganhou!!!!!")
-    }
+
+        if(acertos.length === palavraSecreta.length) {
+            alert("Você ganhou!!!!!")
+        }  
 }
